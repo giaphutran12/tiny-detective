@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f1e8;
+  --foreground: #161312;
+  --paper: #f5f1e8;
+  --panel: #fbf8f3;
+  --ink: #161312;
+  --rail: #0f1516;
+  --live: #198c8a;
+  --risk: #c65d3a;
+  --warning: #b8892d;
+  --border: rgba(22, 19, 18, 0.12);
+  --border-strong: rgba(22, 19, 18, 0.18);
+  --shadow: 0 24px 60px rgba(15, 21, 22, 0.08);
+  --font-body: var(--font-ui, var(--font-manrope, var(--font-geist-sans), Arial, sans-serif));
+  --font-display: var(--font-newsreader, Georgia, serif);
+  --font-mono: var(--font-ibm-plex-mono, var(--font-geist-mono), "SFMono-Regular", monospace);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(25, 140, 138, 0.08), transparent 36%),
+    radial-gradient(circle at top right, rgba(198, 93, 58, 0.08), transparent 28%),
+    linear-gradient(180deg, #f7f2e8 0%, #f3ede3 100%);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: transparent;
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(25, 140, 138, 0.18);
+  color: var(--ink);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(22, 19, 18, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(22, 19, 18, 0.22);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
 }
